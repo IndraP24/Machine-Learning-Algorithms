@@ -1,6 +1,6 @@
-import nupmy as np
+import numpy as np
 import pandas as pd
-import Machine-Learning-Algorithms.utils.mean_squared_error as mse
+import mlfromscratch.utils
 
 
 def reg_least_sqr(X, y):
@@ -43,5 +43,5 @@ def reg_predict_score(X_train, X_test, y_train, y_test, grad_desc=True, least_sq
         m, c = reg_least_sqr(X_train, y_train)
     
     y_pred = m*X_test + c
-    score = mse(y_test, y_pred)
+    score = utils.mean_squared_error(y_test, y_pred)
     return  y_pred, score
