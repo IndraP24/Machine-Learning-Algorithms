@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from mlfromscratch.utils import mean_squared_error
 
 
@@ -35,7 +34,7 @@ def reg_grad_desc(X, y, L = 0.001, epochs = 1000):
     return m, c
 
 
-def reg_predict_score(X_train, X_test, y_train, y_test, grad_desc=True, least_sqr=False):
+def linear_regression_model(X_train, X_test, y_train, y_test, grad_desc=True, least_sqr=False):
     """ Predicting the target variable using suitable method and calculating the mean squared error between
     the actual and predicted target variable"""
 
