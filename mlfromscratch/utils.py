@@ -41,3 +41,9 @@ def train_test_split(X, y, test_size=0.5, shuffle=True, seed=None):
     y_train, y_test = y[:split_i], y[split_i:]
 
     return X_train, X_test, y_train, y_test
+
+
+def mean_squared_error(y_true, y_pred):
+    """ Returns the mean squared error between y_true and y_pred """
+    mse = np.mean(np.power(y_true - y_pred, 2))
+    return mse
