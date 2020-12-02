@@ -27,7 +27,11 @@ def back_prop(X, y, z):
 
 
 def gradient_descent_update(w, b, dw, db, learning_rate):
+<<<<<<< HEAD
     w += -learning_rate * dw
+=======
+    w += -learning_rate * dW
+>>>>>>> 93fe9c4aa5da666405c8a2be8e145d3ea778a90a
     b += -learning_rate * db
     return w, b
 

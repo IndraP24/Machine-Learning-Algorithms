@@ -6,11 +6,18 @@ import sys
 def generate_data(num_samples):
     """Generate dummy data for linear regression."""
     X = np.array(range(num_samples))
+<<<<<<< HEAD
     random_noise = np.random.uniform(-20,30,size=num_samples)
     y = 3.5*X + random_noise # add some noise
     return X, y
 
 
+=======
+    random_noise = np.random.uniform(-10,20,size=num_samples)
+    y = 3.5*X + random_noise # add some noise
+    return X, y
+
+>>>>>>> 93fe9c4aa5da666405c8a2be8e145d3ea778a90a
 def shuffle_data(X, y, seed=None):
     """ Random shuffle of the samples in X and y """
     if seed:
@@ -19,7 +26,11 @@ def shuffle_data(X, y, seed=None):
     np.random.shuffle(idx)
     return X[idx], y[idx]
     
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 93fe9c4aa5da666405c8a2be8e145d3ea778a90a
 def normalize(X, axis=-1, order=2):
     """ Normalize the dataset X """
     l2 = np.atleast_1d(np.linalg.norm(X, order, axis))
