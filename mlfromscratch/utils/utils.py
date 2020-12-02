@@ -3,6 +3,13 @@ import numpy as np
 import sys
 
 
+def generate_data(num_samples):
+    """Generate dummy data for linear regression."""
+    X = np.array(range(num_samples))
+    random_noise = np.random.uniform(-10,20,size=num_samples)
+    y = 3.5*X + random_noise # add some noise
+    return X, y
+
 def shuffle_data(X, y, seed=None):
     """ Random shuffle of the samples in X and y """
     if seed:
