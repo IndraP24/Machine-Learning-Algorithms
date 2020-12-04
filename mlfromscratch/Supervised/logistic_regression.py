@@ -23,3 +23,10 @@ def soft_norm(logits):
   exp_logits = np.exp(logits)
   y_hat = exp_logits / np.sum(exp_logits, axis=1, keepdims=True)
   return y_hat
+
+
+def cost(y_hat, y_train):
+  """Compare the predictions $\hat{y}$ (ex. [0.3, 0.3, 0.4]]) with the actual target values $y$ (ex. class 2 would look like [0, 0, 1]) with the objective (cost) function to determine loss $J$. A common objective function for logistics regression is cross-entropy loss.
+$J(\theta) = - \sum_i ln(\hat{y_i}) = - \sum_i ln (\frac{e^{X_iW_y}}{\sum_j e^{X_iW}}) $"""
+  correct_class_logprobs = -np.log(y_hat[range(len(y_hat)), y_train])
+  loss = np.sum(correct_class_logprobs) / len(y_train)
