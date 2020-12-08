@@ -30,3 +30,15 @@ def cost(y_hat, y_train):
 J(theta) = - sum_i ln(y_hat_i}) = - sum_i ln(e^(X_i.W_y) / sum_j e^(X_i.W)"""
   correct_class_logprobs = -np.log(y_hat[range(len(y_hat)), y_train])
   loss = np.sum(correct_class_logprobs) / len(y_train)
+
+  
+ def back_prop(X_train, y_train, y_hat):
+  """Calculate the gradient of loss J(theta) w.r.t the model weights assuming that our classes are mutually exclusive."""
+  dscores = y_hat
+  dscores[range(len(y_hat)), y_train] -+ 1
+  dscores /= len(y_train)
+  dW = np.dot(X_train.T, dscores)
+  db = np.sum(dscores, axis=0, keepdims=True)
+  return dW, db
+
+              
