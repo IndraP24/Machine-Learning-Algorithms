@@ -42,3 +42,11 @@ J(theta) = - sum_i ln(y_hat_i}) = - sum_i ln(e^(X_i.W_y) / sum_j e^(X_i.W)"""
   return dW, db
 
               
+def update(W, b, dW, db, LEARNING_RATE):
+  """Update the weights W using a small learning rate alpha."""
+  LEARNING_RATE = 1e-1
+  W += -LEARNING_RATE * dW
+  b += -LEARNING_RATE * db
+  return W, b
+
+
