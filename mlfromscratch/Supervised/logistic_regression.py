@@ -12,8 +12,8 @@ def initialize_weights(INPUT_DIM, NUM_CLASSES):
 
 
 def forward_prop(X_train, W, b):
-  """Feed inputs X into the model to receive the logits (z = X . W). Apply the softmax operation on the logits to get the class probabilies $\hat{y}$ in one-hot encoded form. For example, if there are three classes, the predicted class probabilities could look like [0.3, 0.3, 0.4].
-$ \hat{y} = softmax(z) = softmax(XW) = \frac{e^{XW_y}}{\sum_j e^{XW}} $"""
+  """Feed inputs X into the model to receive the logits (z = X . W). Apply the softmax operation on the logits to get the class probabilies y_hat in one-hot encoded form. For example, if there are three classes, the predicted class probabilities could look like [0.3, 0.3, 0.4].
+  y_hat = softmax(z) = softmax(X.W) = e^(X.W)_y / sum_j e^(X.W) """
   logits = np.dot(X_train, W) + b
   return logits
 
@@ -26,7 +26,7 @@ def soft_norm(logits):
 
 
 def cost(y_hat, y_train):
-  """Compare the predictions $\hat{y}$ (ex. [0.3, 0.3, 0.4]]) with the actual target values $y$ (ex. class 2 would look like [0, 0, 1]) with the objective (cost) function to determine loss $J$. A common objective function for logistics regression is cross-entropy loss.
-$J(\theta) = - \sum_i ln(\hat{y_i}) = - \sum_i ln (\frac{e^{X_iW_y}}{\sum_j e^{X_iW}}) $"""
+  """Compare the predictions y_hat (ex. [0.3, 0.3, 0.4]]) with the actual target values y (ex. class 2 would look like [0, 0, 1]) with the objective (cost) function to determine loss J. A common objective function for logistics regression is cross-entropy loss.
+J(theta) = - sum_i ln(y_hat_i}) = - sum_i ln(e^(X_i.W_y) / sum_j e^(X_i.W)"""
   correct_class_logprobs = -np.log(y_hat[range(len(y_hat)), y_train])
   loss = np.sum(correct_class_logprobs) / len(y_train)
